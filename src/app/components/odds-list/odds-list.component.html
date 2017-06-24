@@ -1,4 +1,4 @@
-<section *ngIf="oddsDetails.length > 0">
+<section *ngIf="oddsDetails.length > 0" class='l-table'>
   <div *ngFor="let oddDetail of oddsDetails">
     <app-odds-list-item [oddDetail] = "oddDetail"></app-odds-list-item>
   </div>
