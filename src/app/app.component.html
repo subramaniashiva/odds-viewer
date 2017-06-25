@@ -1,4 +1,7 @@
-<section class='flex'>
-  <app-odds-list [oddsDetails]="oddsDetails" (selectedTeam)="onSelectedTeam($event)"></app-odds-list>
-  <app-chart *ngIf="teamDetails" [selectedTeam]="teamDetails"></app-chart>
+<header>
+  <h2 class='text-center'>UEFA Champions League Bet Comparison - 2017</h2>
+</header>
+<section class='flex c-main'>
+  <app-odds-list [oddsDetails]="oddsDetails" (selectedTeam)="onSelectedTeam($event)" class='c-table'></app-odds-list>
+  <app-chart [selectedTeam]="teamDetails" class='c-chart'></app-chart>
 </section>

@@ -58,6 +58,9 @@ export class ChartComponent implements OnInit {
             }
           }
         },
+        chart: {
+          backgroundColor: '#f5f5f5'
+        },
         series: this.getSeriesData(team)
       }
       return this.options;

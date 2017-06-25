@@ -14,7 +14,15 @@ export class OddsListComponent implements OnInit {
 
   @Output() selectedTeam: EventEmitter<OddsListItemInterface> = new EventEmitter();
 
-  currentOrder:string = '';
+  currentOrder: string = '';
+
+  hoverShown: boolean = false;
+
+  hoverTable: Array<number> = [];
+
+  hoverTableLeft: string;
+
+  hoverTableTop: string;
 
   constructor() { }
 
@@ -33,5 +41,18 @@ export class OddsListComponent implements OnInit {
 
   onSelectedItem(val) {
     this.selectedTeam.emit(val);
+  }
+
+  onHoverShown(val) {
+    this.hoverShown = val;
+  }
+
+  onHoverTable(val) {
+    this.hoverTable = val;
+  }
+
+  onHoverEvent(val) {
+    this.hoverTableLeft = (val.pageX - 30) + 'px';
+    this.hoverTableTop = (val.pageY + 10) + 'px';
   }
 }
