@@ -1,3 +1,6 @@
 <div>
-  <chart [options]="options"></chart>
+  <chart *ngIf="selectedTeam" [options]="options"></chart>
+  <div *ngIf="!selectedTeam" class='text-center'>
+    <h3>Please click a team to view the chart for the team</h3>
+  </div>
 </div>
