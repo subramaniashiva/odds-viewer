@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { OddsListComponent } from './odds-list.component';
 import { OddsListItemComponent } from '../odds-list-item/odds-list-item.component';
-import data from '../../utils/data';
+import { generateData } from '../../utils/data';
 
 describe('OddsListComponent', () => {
   let component: OddsListComponent;
@@ -21,7 +21,7 @@ describe('OddsListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OddsListComponent);
     component = fixture.componentInstance;
-    component.oddsDetails = data;
+    component.oddsDetails = generateData();
     fixture.detectChanges();
   });
 

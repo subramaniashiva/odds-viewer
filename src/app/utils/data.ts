@@ -1,6 +1,6 @@
 // Sample data which represents the back end API result.
 
-export function generateData():Array<Object> {
+export function generateData():Array<any> {
   const teams = ['Barcelona', 'Real Madrid', 'Man City', 'Man Utd', 'Chelsea',
     'Liverpool', 'Roma', 'Ajax', 'Sevilla', 'PSG'];
 
