@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import data from '../../utils/data';
+import { generateData } from '../../utils/data';
 import API from '../../utils/api';
 import { OddsListItemInterface } from '../../interfaces/oddsListItemInterface';
 
@@ -19,7 +19,7 @@ export class OddsDetailsService {
   getOddDetails(): Promise<OddsListItemInterface[]> {
     return this.http.get(API.root + API.path.getOddsList)
       .toPromise()
-      .then(() => data)
+      .then(() => generateData())
       .catch(this.handleError);
   }
 
