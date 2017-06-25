@@ -1,5 +1,5 @@
 import { BetObjectInterface } from './betObjectInterface';
-
+import { HistoryObjectInterface } from './historyObjectInterface';
 /**
  * @interface - Exchanges List Interface.
  * @param {string} name - Name of the exchange.
@@ -14,5 +14,5 @@ export interface ExchangesListInterface {
   currency: string,
   back_all: Array<BetObjectInterface>
   lay_all: Array<BetObjectInterface>
-  history: Object
+  history: HistoryObjectInterface
 };
