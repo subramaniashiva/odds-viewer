@@ -25,7 +25,7 @@
   </div>
 
   <div *ngIf="hoverShown" class='absolute o-hover-table' [style.left]=hoverTableLeft [style.top]=hoverTableTop>
-    <p>Other odds from the bookmarker</p>
+    <p class='text-center'>Other odds</p>
     <div class='flex'>
       <div *ngFor="let price of hoverTable" class='o-hover-table__cell'>
         {{price}}
