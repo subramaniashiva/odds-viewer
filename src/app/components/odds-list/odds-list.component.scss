@@ -1,13 +1,51 @@
+@import '../../../styles/variables';
 .l-table {
   width: 50%;
 }
 .o-order-text {
   display: none;
+  top: 50%;
+  margin-top: -4px;
+  right: 1px;
 }
 .o-sort-header {
+  width: 50%;
   &:hover {
     .o-order-text{
       display: block;
     }
+  }
+}
+.l-tbl-main-hdr {
+  .l-tbl-main-hdr__cell {
+    padding: 15px 0;
+    border-right: 1px solid #000;
+  }
+}
+.o-tbl-main-hdr {
+  background: map-get($colors, dark);
+  color: #FFF;
+  font-weight: bold;
+}
+.l-tbl-sub-hdr {
+  .l-tbl-sub-hdr__cell {
+    padding: 15px 0;
+    border-right: 1px solid #000;
+  }
+}
+.o-tbl-sub-hdr {
+  background: map-get($colors, light);
+  font-weight: bold;
+}
+.o-tbl-row {
+  border-bottom: 1px solid map-get($colors, dark);
+}
+
+.o-hover-table {
+  z-index: 1;
+  background: map-get($colors, light);
+  padding: 5px 10px;
+  .o-hover-table__cell {
+    padding: 10px;
   }
 }
