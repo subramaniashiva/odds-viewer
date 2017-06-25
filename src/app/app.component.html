@@ -1,3 +1,10 @@
-<h1>
-  {{title}}
-</h1>
+<header>
+  <h2 class='text-center o-page-title'>UEFA Champions League Bet Comparison - 2017</h2>
+</header>
+<section class='flex c-main'>
+  <app-odds-list *ngIf="oddsDetails.length" [oddsDetails]="oddsDetails" (selectedTeam)="onSelectedTeam($event)" class='c-table'></app-odds-list>
+  <div>
+    <h3 class='text-center no-top-margin' *ngIf="!oddsDetails.length">Loading data. Please wait...</h3>
+  </div>
+  <app-chart *ngIf="oddsDetails.length" [selectedTeam]="teamDetails" class='c-chart'></app-chart>
+</section>

@@ -1,10 +1,25 @@
 import { Component } from '@angular/core';
 
+import { OddsDetailsService } from './services/odds-details-service/odds-details-service.service';
+import { OddsListItemInterface } from './interfaces/oddsListItemInterface';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [OddsDetailsService]
 })
 export class AppComponent {
-  title = 'app works!';
+  oddsDetails: Array<OddsListItemInterface> = [];
+  teamDetails: OddsListItemInterface;
+
+  constructor(private odddetailsService: OddsDetailsService) {
+    this.odddetailsService.getOddDetails().then((details) => {
+      this.oddsDetails = details;
+    });
+  }
+
+  onSelectedTeam(val:OddsListItemInterface) {
+    this.teamDetails = val;
+  }
 }

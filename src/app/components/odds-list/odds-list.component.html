@@ -1,0 +1,35 @@
+<section *ngIf="oddsDetails.length > 0">
+  <div class='flex l-tbl-main-hdr o-tbl-main-hdr'>
+    <div class='cell-width text-center l-tbl-main-hdr__cell name-cell'>Name</div>
+    <div *ngFor="let exchange of oddsDetails[0].exchanges" class='cell-width-double text-center l-tbl-main-hdr__cell'>
+      {{exchange.name}}
+    </div>
+  </div>
+
+  <div class='flex l-tbl-sub-hdr o-tbl-sub-hdr'>
+    <div class='cell-width text-center name-cell l-tbl-sub-hdr__cell'></div>
+    <div *ngFor="let exchange of oddsDetails[0].exchanges; let i = index" class='flex cell-width-double'>
+        <div class='pointer o-sort-header text-center l-tbl-sub-hdr__cell relative' (click) = "sort('back_all', i)">
+          Back All
+          <span class='o-order-text absolute' [ngClass]="{'arrow-down': currentOrder === 'descending', 'arrow-up': currentOrder !== 'descending'}"></span>
+        </div>
+        <div class='pointer o-sort-header text-center l-tbl-sub-hdr__cell relative' (click) = "sort('lay_all', i)">
+          Lay All
+          <span class='o-order-text absolute' [ngClass]="{'arrow-down': currentOrder === 'descending', 'arrow-up': currentOrder !== 'descending'}"></span>
+        </div>
+    </div>
+  </div>
+
+  <div *ngFor="let oddDetail of oddsDetails" class='o-tbl-row'>
+    <app-odds-list-item [oddDetail] = "oddDetail" (selectedItem)="onSelectedItem($event)" (hoverShown)="onHoverShown($event)" (hoverTable)="onHoverTable($event)" (hoverEvent)="onHoverEvent($event)" ></app-odds-list-item>
+  </div>
+
+  <div *ngIf="hoverShown" class='absolute o-hover-table' [style.left]=hoverTableLeft [style.top]=hoverTableTop>
+    <p class='text-center'>Other odds</p>
+    <div class='flex'>
+      <div *ngFor="let price of hoverTable" class='o-hover-table__cell'>
+        {{price}}
+      </div>
+    </div>
+  </div>
+</section>

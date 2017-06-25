@@ -1,0 +1,63 @@
+@import './variables';
+.flex {
+  display: flex !important;
+}
+.underline {
+  text-decoration: underline !important;
+}
+.pointer {
+  cursor: pointer !important;
+}
+.relative {
+  position: relative !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.table-cell {
+  margin: 10px;
+  padding: 10px;
+}
+.cell-width {
+  width: 14%;
+}
+.cell-width-double {
+  width: 28%;
+}
+.name-cell {
+  width: 16%;
+  border-left: 1px solid #000;
+}
+.text-center {
+  text-align: center !important;
+}
+
+.c-main {
+  width: 100%;
+  @media(min-width: map-get($grid-breakpoints, xl)) {
+    max-width: map-get($grid-breakpoints, xl);
+    margin: 0 auto;
+  }
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-bottom: 5px solid black;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-top: 5px solid black;
+}
+
+.no-top-margin {
+  margin-top: 0;
+}
