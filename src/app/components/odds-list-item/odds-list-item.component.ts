@@ -14,13 +14,13 @@ export class OddsListItemComponent implements OnInit {
 
   @Output() selectedItem: EventEmitter<OddsListItemInterface> = new EventEmitter();
 
+  @Output() hoverShown: EventEmitter<boolean> = new EventEmitter();
+
+  @Output() hoverTable: EventEmitter<Array<number>> = new EventEmitter();
+
+  @Output() hoverEvent: EventEmitter<MouseEvent> = new EventEmitter();
+
   max_details: Array<Object> = [];
-
-  hoverShown: boolean = false;
-
-  hoverTable: Array<number> = [];
-
-  hoverTableLeft: string = '0%';
 
   constructor() { }
 
@@ -31,20 +31,15 @@ export class OddsListItemComponent implements OnInit {
     }));
   }
 
-  showHoverTable(type, index) {
-    this.hoverShown = true;
-    if(type === 'back') {
-      this.hoverTable = this.oddDetail.exchanges[index].back_all.map((item) => (item.price));
-      this.hoverTableLeft = ((index + 1)*20).toString() + '%';
-    } else {
-      this.hoverTable = this.oddDetail.exchanges[index].lay_all.map((item) => (item.price));
-      this.hoverTableLeft = ((index + 1)*25).toString() + '%';
-    }
+  showHoverTable(event:MouseEvent, type:string, index:number) {
+    this.hoverShown.emit(true);
+    this.hoverTable.emit(this.oddDetail.exchanges[index][type].map((item) => (item.price)));
+    this.hoverEvent.emit(event);
   }
 
   hideHoverTable() {
-    this.hoverShown = false;
-    this.hoverTable = [];
+    this.hoverShown.emit(false);
+    this.hoverTable.emit([]);
   }
 
   selectItem() {
