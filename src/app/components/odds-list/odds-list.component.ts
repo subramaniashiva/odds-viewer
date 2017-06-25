@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { OddsListItemInterface } from '../../interfaces/oddsListItemInterface';
 import { getMaximum } from '../../utils/helper';
@@ -11,6 +11,8 @@ import { getMaximum } from '../../utils/helper';
 export class OddsListComponent implements OnInit {
 
   @Input() oddsDetails: Array<OddsListItemInterface>;
+
+  @Output() selectedTeam: EventEmitter<OddsListItemInterface> = new EventEmitter();
 
   currentOrder:string = '';
 
@@ -27,5 +29,9 @@ export class OddsListComponent implements OnInit {
     });
 
     this.currentOrder = (this.currentOrder === 'descending') ? 'ascending': 'descending';
+  }
+
+  onSelectedItem(val) {
+    this.selectedTeam.emit(val);
   }
 }

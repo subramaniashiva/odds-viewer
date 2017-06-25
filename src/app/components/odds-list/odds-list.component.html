@@ -2,7 +2,7 @@
   <div class='flex'>
     <div class='flex table-cell'>Name</div>
     <div *ngFor="let exchange of oddsDetails[0].exchanges" class='flex table-cell'>
-        <div>{{exchange.name}}</div>
+        <div class='underline'>{{exchange.name}}</div>
     </div>
   </div>
 
@@ -21,6 +21,6 @@
   </div>
 
   <div *ngFor="let oddDetail of oddsDetails">
-    <app-odds-list-item [oddDetail] = "oddDetail"></app-odds-list-item>
+    <app-odds-list-item [oddDetail] = "oddDetail" (selectedItem)="onSelectedItem($event)"></app-odds-list-item>
   </div>
 </section>
