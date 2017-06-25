@@ -2,20 +2,29 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
+import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+import * as highcharts from 'highcharts';
 
 import { AppComponent } from './app.component';
 import { OddsListComponent } from './components/odds-list/odds-list.component';
 import { OddsListItemComponent } from './components/odds-list-item/odds-list-item.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
+      imports: [ HttpModule, ChartModule ],
       declarations: [
         AppComponent,
         OddsListComponent,
-        OddsListItemComponent
+        OddsListItemComponent,
+        ChartComponent
       ],
+      providers: [{
+        provide: HighchartsStatic,
+        useValue: highcharts
+      }]
     });
     TestBed.compileComponents();
   });
