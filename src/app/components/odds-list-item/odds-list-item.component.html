@@ -1,6 +1,6 @@
 <div class='relative'>
   <div class='flex relative'>
-    <div class='table-cell'>{{oddDetail.name}}</div>
+    <div class='table-cell pointer underline' (click)="selectItem()">{{oddDetail.name}}</div>
     <div *ngFor="let max of max_details; let i = index" class='flex'>
       <div (mouseenter) = "showHoverTable('back', i)" (mouseleave) = "hideHoverTable()" class='table-cell underline pointer'>{{max.back_all}}</div>
       <div (mouseenter) = "showHoverTable('lay', i)" (mouseleave) = "hideHoverTable()" class='table-cell underline pointer'>{{max.lay_all}}</div>

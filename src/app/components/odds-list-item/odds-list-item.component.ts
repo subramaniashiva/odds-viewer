@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { OddsListItemInterface } from '../../interfaces/oddsListItemInterface';
 import { getMaximum } from '../../utils/helper';
@@ -11,6 +11,8 @@ import { getMaximum } from '../../utils/helper';
 export class OddsListItemComponent implements OnInit {
 
   @Input() oddDetail: OddsListItemInterface;
+
+  @Output() selectedItem: EventEmitter<OddsListItemInterface> = new EventEmitter();
 
   max_details: Array<Object> = [];
 
@@ -43,5 +45,9 @@ export class OddsListItemComponent implements OnInit {
   hideHoverTable() {
     this.hoverShown = false;
     this.hoverTable = [];
+  }
+
+  selectItem() {
+    this.selectedItem.emit(this.oddDetail);
   }
 }
