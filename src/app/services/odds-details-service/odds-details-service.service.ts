@@ -14,8 +14,16 @@ const messages = {
 @Injectable()
 export class OddsDetailsService {
 
+  /**
+   * @constructor
+   * @param {Http} http
+   */
   constructor(private http:Http) { }
 
+  /**
+   * Gets the odds details from back-end.
+   * @return {Promise} returns a promise which resolves to odds object.
+   */
   getOddDetails(): Promise<OddsListItemInterface[]> {
     return this.http.get(API.root + API.path.getOddsList)
       .toPromise()
