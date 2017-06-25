@@ -1,8 +1,15 @@
+@import '../styles/variables';
 .c-table {
   width: 50%;
+  @media(max-width: map-get($grid-breakpoints, lg)) {
+    width: 100%;
+  }
 }
 .c-chart {
   width: 50%;
+  @media(max-width: map-get($grid-breakpoints, lg)) {
+    display: none;
+  }
 }
 .o-page-title {
   margin-bottom: 30px;
