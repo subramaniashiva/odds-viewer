@@ -486,7 +486,7 @@ var OddsDetailsService = (function () {
 */
 var API = {
     // Temporary API root for the odds list.
-    root: 'http://swapi.co/api',
+    root: 'https://swapi.co/api',
     path: {
         // Temporary API path for odds list.
         getOddsList: '/people/'
