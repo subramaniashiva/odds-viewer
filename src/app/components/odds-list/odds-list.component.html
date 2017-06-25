@@ -1,4 +1,25 @@
 <section *ngIf="oddsDetails.length > 0" class='l-table'>
+  <div class='flex'>
+    <div class='flex table-cell'>Name</div>
+    <div *ngFor="let exchange of oddsDetails[0].exchanges" class='flex table-cell'>
+        <div>{{exchange.name}}</div>
+    </div>
+  </div>
+
+  <div class='flex'>
+    <div class='flex table-cell'>Odds</div>
+    <div *ngFor="let exchange of oddsDetails[0].exchanges; let i = index" class='flex'>
+        <div class='flex table-cell pointer o-sort-header' (click) = "sort('back_all', i)">
+          Back All
+          <span class='o-order-text'>{{currentOrder === 'descending' ? 'v' : '^'}}</span>
+        </div>
+        <div class='flex table-cell pointer o-sort-header' (click) = "sort('lay_all', i)">
+          Lay All
+          <span class='o-order-text'>{{currentOrder === 'descending' ? 'v' : '^'}}</span>
+        </div>
+    </div>
+  </div>
+
   <div *ngFor="let oddDetail of oddsDetails">
     <app-odds-list-item [oddDetail] = "oddDetail"></app-odds-list-item>
   </div>
