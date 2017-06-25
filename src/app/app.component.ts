@@ -11,10 +11,15 @@ import { OddsListItemInterface } from './interfaces/oddsListItemInterface';
 })
 export class AppComponent {
   oddsDetails: Array<OddsListItemInterface> = [];
+  teamDetails: OddsListItemInterface;
 
   constructor(private odddetailsService: OddsDetailsService) {
     this.odddetailsService.getOddDetails().then((details) => {
       this.oddsDetails = details;
     });
+  }
+
+  onSelectedTeam(val:OddsListItemInterface) {
+    this.teamDetails = val;
   }
 }

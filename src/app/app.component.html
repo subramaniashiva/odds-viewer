@@ -1,3 +1,4 @@
-<section>
-  <app-odds-list [oddsDetails]="oddsDetails"></app-odds-list>
+<section class='flex'>
+  <app-odds-list [oddsDetails]="oddsDetails" (selectedTeam)="onSelectedTeam($event)"></app-odds-list>
+  <app-chart *ngIf="teamDetails" [selectedTeam]="teamDetails"></app-chart>
 </section>
