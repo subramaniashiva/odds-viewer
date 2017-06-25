@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./styles/helper";
-@import "./styles/variables";
+@import "./app/styles/helper";
+@import "./app/styles/variables";
 
 body {
   background: map-get($colors, background);
