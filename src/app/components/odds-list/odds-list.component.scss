@@ -1,3 +1,13 @@
 .l-table {
   width: 50%;
 }
+.o-order-text {
+  display: none;
+}
+.o-sort-header {
+  &:hover {
+    .o-order-text{
+      display: block;
+    }
+  }
+}
