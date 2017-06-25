@@ -43,7 +43,7 @@ Tech Stack
 ----------
 Following is the tech stack:
 
- - **Angular 4** - MVC framework to build the applicaion
+ - **Angular 2** - MVC framework to build the applicaion
  - **TypeScript** - The super set of JavaScript. Provides static typing to the js files
  - **SCSS** - Using SCSS files instead of plain CSS
  - **TSLint** - Used to lint the TypeScript code
@@ -70,6 +70,14 @@ This project uses Git Flow for developing.
  - **develop** - The current development version of the product. Contains code that are ready to be pushed into master. 
  - **feature/x** - Feature branch, branched off from develop. To develop a new feature create new feature branch from the develop and start. Merged into develop when the feature is ready.
  - **fix/x** - Branch to fix bugs in the application. Branched off from develop and merged back when ready.
+
+Git Commits
+-------
+This project uses Angular repo commiting guidelines for all git commits. To read about it, please click [here](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit)
+
+- The commit message should begin with feat or fix to show a feature or fix.
+- feat or fix shold be followed by the scope of the application in paranthesis like table, table-hover, tests..etc
+- It should be followed by the actual commit message.
 
 Coding Guidelines
 -------
